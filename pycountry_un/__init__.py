@@ -3,7 +3,7 @@ Provide lists in the United Nation's World Economic Situation and Prospects
 as sequences of Pycountry elements.
 """
 __author__ = "Fábio Mendes"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from . import db
 

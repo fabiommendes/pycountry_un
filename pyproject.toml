@@ -7,8 +7,9 @@ module = "pycountry_un"
 dist-name = "pycountry-un"
 author = "Fábio Macêdo Mendes"
 author-email = "fabiomacedomendes@gmail.com"
-home-page = "http://github.com/fabiommendes/covid-19"
+home-page = "https://github.com/fabiommendes/pycountry_un"
 classifiers = [ "License :: OSI Approved :: MIT License" ]
+description-file = "README.rst"
 requires = [
   "pycountry~=19.8",
 ]
@@ -16,6 +17,7 @@ requires = [
 [tool.flit.metadata.requires-extra]
 dev = [
   "black",
+  "twine",
 ]
 test = [
   "coverage~=5.0",
