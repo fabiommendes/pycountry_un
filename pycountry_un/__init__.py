@@ -12,58 +12,229 @@ from . import db
 #
 north_america = db.Database(name="North America", keys={"USA", "CAN"})
 
-developed_asia_and_pacific = db.Database(name="Developed Asia and Pacific", keys={"JPN", "AUS", "NZL"})
+developed_asia_and_pacific = db.Database(
+    name="Developed Asia and Pacific", keys={"JPN", "AUS", "NZL"}
+)
 
-eu15 = db.Database(name="European Union's original 15 member states", keys={"AUT", "BEL", "DEU", "DNK", "ESP", "FIN", "FRA", "GBR", "GRC", "IRL", "ITA", "LUX", "NLD", "PRT", "SWE"})
+eu15 = db.Database(
+    name="European Union's original 15 member states",
+    keys={
+        "AUT",
+        "BEL",
+        "DEU",
+        "DNK",
+        "ESP",
+        "FIN",
+        "FRA",
+        "GBR",
+        "GRC",
+        "IRL",
+        "ITA",
+        "LUX",
+        "NLD",
+        "PRT",
+        "SWE",
+    },
+)
 
-eu13 = db.Database(name="European Union's original 15 member states", keys={"CYP", "MLT", "SVN", "HRV", "EST", "SVK", "ROU", "POL", "HUN", "CZE", "LTU", "BGR", "LVA"})
+eu13 = db.Database(
+    name="European Union's original 15 member states",
+    keys={
+        "CYP",
+        "MLT",
+        "SVN",
+        "HRV",
+        "EST",
+        "SVK",
+        "ROU",
+        "POL",
+        "HUN",
+        "CZE",
+        "LTU",
+        "BGR",
+        "LVA",
+    },
+)
 
 developed_europe_other = db.Database(name="Other Europe", keys={"CHE", "NOR", "ISL"})
 
 g7 = db.Database(name="G7", keys={"DEU", "FRA", "CAN", "GBR", "USA", "ITA", "JPN"})
 
 developed_europe = db.aggregate("Europe", eu13, eu15, developed_europe_other)
-developed_countries = db.aggregate("Developed Countries", north_america, developed_asia_and_pacific, developed_europe, g7)
+developed_countries = db.aggregate(
+    "Developed Countries", north_america, developed_asia_and_pacific, developed_europe, g7
+)
 
 
 #
 # Countries in transition
 #
-transitional_europe = db.Database(name="South-Eastern Europe", keys={"BIH", "MNE", "SRB", "ALB", "MKD"})
+transitional_europe = db.Database(
+    name="South-Eastern Europe", keys={"BIH", "MNE", "SRB", "ALB", "MKD"}
+)
 
-transitional_commonwealth = db.Database(name="Commonwealth of Independent States and Georgia", keys={"UZB", "AZE", "UKR", "TKM", "BLR", "RUS", "GEO", "MDA", "TJK", "ARM", "KGZ", "KAZ"})
-transitional_countries = db.aggregate("Economies in transition", transitional_europe, transitional_commonwealth)
+transitional_commonwealth = db.Database(
+    name="Commonwealth of Independent States and Georgia",
+    keys={
+        "UZB",
+        "AZE",
+        "UKR",
+        "TKM",
+        "BLR",
+        "RUS",
+        "GEO",
+        "MDA",
+        "TJK",
+        "ARM",
+        "KGZ",
+        "KAZ",
+    },
+)
+transitional_countries = db.aggregate(
+    "Economies in transition", transitional_europe, transitional_commonwealth
+)
 
 
 #
 # Developing countries
 #
-north_africa = db.Database(name="North Africa", keys={"TUN", "MRT", "EGY", "LBY", "DZA", "SDN", "MAR"})
+north_africa = db.Database(
+    name="North Africa", keys={"TUN", "MRT", "EGY", "LBY", "DZA", "SDN", "MAR"}
+)
 
-central_africa = db.Database(name="Central Africa", keys={"STP", "TCD", "CMR", "COG", "GAB", "CAF", "GNQ"})
+central_africa = db.Database(
+    name="Central Africa", keys={"STP", "TCD", "CMR", "COG", "GAB", "CAF", "GNQ"}
+)
 
-east_africa = db.Database(name="East Africa", keys={"SOM", "UGA", "MDG", "DJI", "BDI", "ETH", "COM", "RWA", "COD", "SSD", "KEN", "ERI", "TZA"})
+east_africa = db.Database(
+    name="East Africa",
+    keys={
+        "SOM",
+        "UGA",
+        "MDG",
+        "DJI",
+        "BDI",
+        "ETH",
+        "COM",
+        "RWA",
+        "COD",
+        "SSD",
+        "KEN",
+        "ERI",
+        "TZA",
+    },
+)
 
-southern_africa = db.Database(name="Southern Africa", keys={"LSO", "MUS", "SWZ", "AGO", "NAM", "BWA", "ZMB", "MOZ", "ZWE", "MWI", "ZAF"})
+southern_africa = db.Database(
+    name="Southern Africa",
+    keys={"LSO", "MUS", "SWZ", "AGO", "NAM", "BWA", "ZMB", "MOZ", "ZWE", "MWI", "ZAF"},
+)
 
-west_africa = db.Database(name="West Africa", keys={"SLE", "NER", "SEN", "BFA", "NGA", "BEN", "CPV", "CIV", "GIN", "MLI", "GMB", "GNB", "LBR", "GHA", "TGO"})
+west_africa = db.Database(
+    name="West Africa",
+    keys={
+        "SLE",
+        "NER",
+        "SEN",
+        "BFA",
+        "NGA",
+        "BEN",
+        "CPV",
+        "CIV",
+        "GIN",
+        "MLI",
+        "GMB",
+        "GNB",
+        "LBR",
+        "GHA",
+        "TGO",
+    },
+)
 
-east_asia = db.Database(name="East Asia", keys={"VUT", "PRK", "TWN", "KIR", "BRN", "PNG", "TLS", "IDN", "SGP", "MYS", "PHL", "VNM", "SLB", "MNG", "MMR", "THA", "CHN", "FJI", "KHM", "WSM", "LAO"})
+east_asia = db.Database(
+    name="East Asia",
+    keys={
+        "VUT",
+        "PRK",
+        "TWN",
+        "KIR",
+        "BRN",
+        "PNG",
+        "TLS",
+        "IDN",
+        "SGP",
+        "MYS",
+        "PHL",
+        "VNM",
+        "SLB",
+        "MNG",
+        "MMR",
+        "THA",
+        "CHN",
+        "FJI",
+        "KHM",
+        "WSM",
+        "LAO",
+    },
+)
 
-south_asia = db.Database(name="South Asia", keys={"IND", "BTN", "BGD", "AFG", "MDV", "IRN", "NPL", "PAK", "LKA"})
+south_asia = db.Database(
+    name="South Asia",
+    keys={"IND", "BTN", "BGD", "AFG", "MDV", "IRN", "NPL", "PAK", "LKA"},
+)
 
-western_asia = db.Database(name="Western Asia", keys={"BHR", "PSE", "SAU", "QAT", "OMN", "YEM", "ARE", "SYR", "KWT", "LBN", "IRQ", "ISR", "TUR", "JOR"})
+western_asia = db.Database(
+    name="Western Asia",
+    keys={
+        "BHR",
+        "PSE",
+        "SAU",
+        "QAT",
+        "OMN",
+        "YEM",
+        "ARE",
+        "SYR",
+        "KWT",
+        "LBN",
+        "IRQ",
+        "ISR",
+        "TUR",
+        "JOR",
+    },
+)
 
-caribbean = db.Database(name="Caribbean", keys={"BRB", "BLZ", "JAM", "BHS", "SUR", "TTO", "GUY"})
+caribbean = db.Database(
+    name="Caribbean", keys={"BRB", "BLZ", "JAM", "BHS", "SUR", "TTO", "GUY"}
+)
 
-mexico_and_central_america = db.Database(name="Mexico and Central America", keys={"MEX", "HTI", "CRI", "HND", "PAN", "SLV", "DOM", "CUB", "NIC", "GTM"})
+mexico_and_central_america = db.Database(
+    name="Mexico and Central America",
+    keys={"MEX", "HTI", "CRI", "HND", "PAN", "SLV", "DOM", "CUB", "NIC", "GTM"},
+)
 
-south_america = db.Database(name="South America", keys={"ARG", "CHL", "BRA", "PRY", "PER", "VEN", "ECU", "COL", "URY", "BOL"})
+south_america = db.Database(
+    name="South America",
+    keys={"ARG", "CHL", "BRA", "PRY", "PER", "VEN", "ECU", "COL", "URY", "BOL"},
+)
 
-africa = db.aggregate("Developing Africa", north_africa, central_africa, west_africa, east_africa, southern_africa)
+africa = db.aggregate(
+    "Developing Africa",
+    north_africa,
+    central_africa,
+    west_africa,
+    east_africa,
+    southern_africa,
+)
 asia = db.aggregate("Developing Asia", east_asia, south_asia, western_asia)
-latin_america_and_caribbean = db.aggregate("Latin America and the Caribbean", caribbean, mexico_and_central_america, south_america)
-developing_countries = db.aggregate("Developing countries", africa, asia, latin_america_and_caribbean)
+latin_america_and_caribbean = db.aggregate(
+    "Latin America and the Caribbean",
+    caribbean,
+    mexico_and_central_america,
+    south_america,
+)
+developing_countries = db.aggregate(
+    "Developing countries", africa, asia, latin_america_and_caribbean
+)
 
 
 #
@@ -108,16 +279,30 @@ least_developed_africa = db.Database(
     },
 )
 
-least_developed_east_asia = db.Database(name="East Asia, least developed countries", keys={"KIR", "TLS", "TUV", "COK", "VUT", "SLB", "KHM", "LAO", "MMR"})
+least_developed_east_asia = db.Database(
+    name="East Asia, least developed countries",
+    keys={"KIR", "TLS", "TUV", "COK", "VUT", "SLB", "KHM", "LAO", "MMR"},
+)
 
-least_developed_south_asia = db.Database(name="South Asia, least developed countries", keys={"NPL", "AFG", "BTN", "BGD"})
+least_developed_south_asia = db.Database(
+    name="South Asia, least developed countries", keys={"NPL", "AFG", "BTN", "BGD"}
+)
 
-least_developed_western_asia = db.Database(name="Western Asia, least developed countries", keys={"YEM"})
+least_developed_western_asia = db.Database(
+    name="Western Asia, least developed countries", keys={"YEM"}
+)
 
-least_developed_latin_america_and_caribbean = db.Database(name="Latin America and the Caribbean, least developed countries", keys={"HTI"})
+least_developed_latin_america_and_caribbean = db.Database(
+    name="Latin America and the Caribbean, least developed countries", keys={"HTI"}
+)
 
 least_developed_countries = db.aggregate(
-    "Least Developed Countries", least_developed_africa, least_developed_east_asia, least_developed_latin_america_and_caribbean, least_developed_south_asia, least_developed_western_asia
+    "Least Developed Countries",
+    least_developed_africa,
+    least_developed_east_asia,
+    least_developed_latin_america_and_caribbean,
+    least_developed_south_asia,
+    least_developed_western_asia,
 )
 
 

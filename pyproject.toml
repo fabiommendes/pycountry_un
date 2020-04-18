@@ -23,4 +23,4 @@ test = [
 ]
 
 [tool.black]
-line-length = 200
+line-length = 90

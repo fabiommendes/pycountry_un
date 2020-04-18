@@ -32,7 +32,11 @@ class Database(Base):
                     continue
                 index = self.indices.setdefault(key, {})
                 if value in index:
-                    logger.debug("%s %r already taken in index %r and will be " "ignored. This is an error in the databases." % (self.data_class_name, value, key))
+                    logger.debug(
+                        "%s %r already taken in index %r and will be "
+                        "ignored. This is an error in the databases."
+                        % (self.data_class_name, value, key)
+                    )
                 index[value] = obj
 
         self._is_loaded = True
